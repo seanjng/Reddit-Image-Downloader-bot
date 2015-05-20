@@ -30,16 +30,16 @@ aTestSub = aSublist[0]
 
 def createDir(subreddit):
 	'''
-			Checks to see if a directory for the subreddit exists. If
-		it doesn't exist, it creates that directory.
+		Checks to see if a directory for the subreddit exists. If
+	it doesn't exist, it creates that directory.
 	'''
 	if not os.path.exists(os.path.abspath("images/{}/".format(subreddit))):
 		os.makedirs(os.path.abspath("images/{}/".format(subreddit)))
 
 def getImgurID(url):
 	'''
-			Takes a url and strips the domain and file type. Returns a
-		valid Imgur image ID
+		Takes a url and strips the domain and file type. Returns a
+	valid Imgur image ID
 	'''
 	imgid = re.sub("(?i)http(s)*://(\w.)*imgur.com/(r/\w*/)*", "", url)
 	while "." in imgid:
@@ -48,8 +48,8 @@ def getImgurID(url):
 
 def getImgurAlbumID(url):
 	'''
-			Takes a url and strips the domain. Returns a valid Imgur
-		album ID.
+		Takes a url and strips the domain. Returns a valid Imgur
+	album ID.
 	'''
 	albid = re.sub("(?i)http(s)*://(\w.)*imgur.com/(a|gallery)/(r/\w*/)*", "", url)
 	while ("#" in albid) | ("?" in albid):
@@ -58,17 +58,17 @@ def getImgurAlbumID(url):
 
 def saveImage(client, subreddit, url, reddID):
 	'''
-			Takes an image id, checks for the file type and creates an
-		appropriate savepath. It then checks to see if the image has
-		already been saved. If the image has been saved, it skips that
-		image.
+		Takes an image id, checks for the file type and creates an
+	appropriate savepath. It then checks to see if the image has
+	already been saved. If the image has been saved, it skips that
+	image.
 
-			In the future, the check will be performed after getImgurID()
-		is called in checkIfSaved() in order to conserve API calls and
-		prevent rate limiting. It will also be compared against a database
-		that contains Reddit submission IDs and Imgur Image/Album IDs in
-		order to allow for checking against other subreddit posts since
-		usually users will submit an image to more than one subreddit.
+		In the future, the check will be performed after getImgurID()
+	is called in checkIfSaved() in order to conserve API calls and
+	prevent rate limiting. It will also be compared against a database
+	that contains Reddit submission IDs and Imgur Image/Album IDs in
+	order to allow for checking against other subreddit posts since
+	usually users will submit an image to more than one subreddit.
 	'''
 	print("  Image: {}".format(url))
 	imgid = getImgurID(url)
@@ -105,8 +105,8 @@ def saveImage(client, subreddit, url, reddID):
 
 def saveAlbum(client, subreddit, url, reddID):
 	'''
-			Takes post url and gets the album ID. It then iterates
-		through the album and calls saveImage().
+		Takes post url and gets the album ID. It then iterates
+	through the album and calls saveImage().
 	'''
 	print("  Album: {}".format(url))
 	albid = getImgurAlbumID(url)
@@ -122,8 +122,8 @@ def saveAlbum(client, subreddit, url, reddID):
 
 def checkIfSaved(reddID, imgid):
 	'''
-			Takes a Reddit post ID and Imgur image ID and checks the
-		database to see if it's been entered.
+		Takes a Reddit post ID and Imgur image ID and checks the
+	database to see if it's been entered.
 	'''
 	db = sqlite3.connect("images.db")
 
