@@ -1,8 +1,6 @@
 from imgurpython.helpers.error import ImgurClientError
 from imgurpython import ImgurClient
-from pprint import pprint
 import bot
-import json
 import praw
 import os
 import re
