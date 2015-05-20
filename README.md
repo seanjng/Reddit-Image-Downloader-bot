@@ -47,3 +47,7 @@ However, it won't detect reuploads of the same image, so unfortunately you're ou
 6. Tell me if I incorrectly added a subreddit.
 7. Ignore images below a certain resolution because nobody wants low res wallpapers.
 8. Sort based on resolution into desktop and mobile wallpapers
+
+## License
+
+See [LICENSE](https://github.com/hizinfiz/Reddit-Image-Downloader-bot/blob/master/LICENSE)
