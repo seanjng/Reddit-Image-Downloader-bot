@@ -9,7 +9,7 @@ This bot was written in Python 3.4.
 1. `git clone http://github.com/hizinfiz/Reddit-Image-Downloader-Bot.git`
 1. Install `sqlite3`, `PRAW`, and `ImgurClient` using pip.
 1. Register an [Imgur Client](https://api.imgur.com/oauth2/addclient).  
-Under "Authorization Type", you can select "OAuth 2 authorization without a callback URL". I'm including this because when I first did it, I had to Google to find the answer.
+Under "Authorization Type", you can select "OAuth 2 authorization without a callback URL". I'm including this because when I first did it, I had to Google to find out which one I should choose.
 1. Create `bot.py` in your Python directory. This allows you to privately store your Imgur client ID, secret, and bot login credentials without worrying about it getting out online. I also use `bot.py` (for now) to store the list of subreddits I'd like my bot to download wallpapers from.   
  The directory on OS X is:
 `/Library/Frameworks/Python.framework/Versions/3.4/lib/python3.4`  
@@ -20,7 +20,7 @@ I've included `sample_bot.py` as an example of what to do.
 
 For now, the bot doesn't currently log in to Reddit, it just runs via the command line. I'm planning to add logging in in the future, that way I can communicate with the bot without having to access it via the command line.
 
-Before starting the bot, you should run `initializeDatabase.py` with the `make` argument. This will initialize the database that keeps track of what images you've saved already.
+Before starting the bot, you should run `initializeDatabase.py make`. This will initialize the database that keeps track of what images you've saved already.
 
 If at any time you want to reset the database, `initializeDatabase.py reset` will do that for you.
 
